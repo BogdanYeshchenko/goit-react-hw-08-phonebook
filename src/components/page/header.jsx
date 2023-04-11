@@ -22,7 +22,7 @@ function Header() {
           <nav className="nav">
             {isLogIn ? (
               <>
-                <span className="hello">Hello {name}</span>
+                <span className="hello">Hello {name}!</span>
 
                 <NavLink
                   onClick={handleLogOut}
