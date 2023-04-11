@@ -4,6 +4,12 @@
   margin-bottom: 20px;
   color: black;
 }
+
+.nav-link:hover,
+.nav-link:focus {
+  color: orange;
+}
+
 .nav-link.active {
   color: orange;
   position: relative;
