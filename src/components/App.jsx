@@ -24,11 +24,11 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="" element={<PablicRoute />} e>
+            <Route index path="login" element={<LogIn />} />
             <Route path="register" element={<Register />} />
-            <Route path="login" element={<LogIn />} />
           </Route>
           <Route path="" element={<PrivateRoute />}>
-            <Route path="contacts" element={<PhoneBook />} />
+            <Route index path="contacts" element={<PhoneBook />} />
           </Route>
         </Route>
       </Routes>
