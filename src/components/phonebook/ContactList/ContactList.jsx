@@ -2,8 +2,9 @@ import { useEffect } from 'react';
 import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { deleteContact, fetchContacts } from 'redux/operations/operations';
+import { deleteContact, fetchContacts } from 'redux/phoneBook/operations';
 import { BeatLoader } from 'react-spinners';
+import ConteinerCenter from 'components/conteiner/conteinerCenter';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
@@ -30,14 +31,16 @@ export const ContactList = () => {
   }
 
   return isLoading ? (
-    <BeatLoader />
+    <ConteinerCenter>
+      <BeatLoader />
+    </ConteinerCenter>
   ) : (
     <ul className={css.contactList}>
       {filteredContscts.map(contact => {
-        const { id, name, phone } = contact;
+        const { id, name, number } = contact;
         return (
           <li key={id} className={css.contact}>
-            {name}: {phone}{' '}
+            {name}: {number}{' '}
             <button
               className="btn btn-dark"
               type="button"

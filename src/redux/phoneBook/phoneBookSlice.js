@@ -2,7 +2,7 @@ import {
   addContact,
   deleteContact,
   fetchContacts,
-} from 'redux/operations/operations';
+} from 'redux/phoneBook/operations';
 
 const { createSlice } = require('@reduxjs/toolkit');
 
