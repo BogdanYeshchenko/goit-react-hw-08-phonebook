@@ -24,11 +24,7 @@ function Header() {
               <>
                 <span className="hello">Hello {name}!</span>
 
-                <NavLink
-                  onClick={handleLogOut}
-                  className="nav-link"
-                  to={'/login'}
-                >
+                <NavLink onClick={handleLogOut} className="nav-link" to={'/'}>
                   <span>Log Out</span>
                 </NavLink>
               </>
@@ -37,7 +33,7 @@ function Header() {
                 <NavLink className="nav-link" to={'/register'}>
                   Register
                 </NavLink>
-                <NavLink className="nav-link" to={'/login'}>
+                <NavLink className="nav-link" to={'/'}>
                   Log In
                 </NavLink>
               </>
