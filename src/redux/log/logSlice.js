@@ -67,6 +67,7 @@ const log = createSlice({
         state.isLogIn = true;
         state.user.name = payload.name;
         state.user.email = payload.email;
+        state.refresh = true;
       })
       .addCase(currentThunk.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -74,6 +75,7 @@ const log = createSlice({
         state.token = null;
         state.user.name = null;
         state.user.email = null;
+        state.refresh = false;
       })
 
       .addCase(logOutThunk.pending, state => {

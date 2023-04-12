@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import PhoneBook from './page/phonebook';
 import Layout from './layout/Layout';
 import LogIn from './page/logIn';
@@ -23,8 +23,12 @@ export const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route
+            index
+            element={<Navigate to={token ? 'contacts' : 'login'} />}
+          />
           <Route path="" redire element={<PablicRoute />} e>
-            <Route path="" element={<LogIn />} />
+            <Route path="login" element={<LogIn />} />
             <Route path="register" element={<Register />} />
           </Route>
           <Route path="" element={<PrivateRoute />}>

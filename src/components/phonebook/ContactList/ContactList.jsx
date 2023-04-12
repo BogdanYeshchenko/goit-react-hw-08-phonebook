@@ -12,10 +12,14 @@ export const ContactList = () => {
   const contacts = useSelector(state => state.phoneBook.contacts.items);
   const isLoading = useSelector(state => state.phoneBook.contacts.isLoading);
   const filter = useSelector(state => state.phoneBook.filter);
+  const refresh = useSelector(state => state.log.refresh);
+  const isLogIn = useSelector(state => state.log.isLogIn);
 
   useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+    if (refresh || isLogIn) {
+      dispatch(fetchContacts());
+    }
+  }, [dispatch, refresh, isLogIn]);
 
   const filteredContscts = contacts.filter(el =>
     el.name.toLowerCase().includes(filter.toLowerCase())

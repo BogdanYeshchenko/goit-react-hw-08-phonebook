@@ -7,7 +7,7 @@ import ConteinerCenter from 'components/conteiner/conteinerCenter';
 const { NavLink } = require('react-router-dom');
 
 function Header() {
-  const isLogIn = useSelector(state => state.log.isLogIn);
+  const token = useSelector(state => state.log.token);
   const name = useSelector(state => state.log.user.name);
   const dispatch = useDispatch();
 
@@ -20,7 +20,7 @@ function Header() {
       <div className={css.boockBox}>
         <ConteinerCenter>
           <nav className="nav">
-            {isLogIn ? (
+            {token ? (
               <>
                 <span className="hello">Hello {name}!</span>
 
@@ -33,7 +33,7 @@ function Header() {
                 <NavLink className="nav-link" to={'/register'}>
                   Register
                 </NavLink>
-                <NavLink className="nav-link" to={'/'}>
+                <NavLink className="nav-link" to={'/login'}>
                   Log In
                 </NavLink>
               </>
