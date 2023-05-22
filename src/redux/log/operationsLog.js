@@ -14,6 +14,8 @@ export const registerThunk = createAsyncThunk(
 
       return response.data;
     } catch (e) {
+      toast.error(`${e.response.statusText} ${e.response.status},
+      ${e.response.data.name}`);
       console.error(e);
       return thunkAPI.rejectWithValue(e.message);
     }
